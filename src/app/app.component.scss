@@ -365,32 +365,32 @@ a {
         }
 
         &:nth-child(1)::before {
-            width: 80%;
+            width: 90%;
             animation: skill_1 $time ease;
         }
 
         &:nth-child(2)::before {
-            width: 90%;
+            width: 80%;
             animation: skill_2 $time ease;
         }
 
         &:nth-child(3)::before {
-            width: 50%;
+            width: 75%;
             animation: skill_3 $time ease;
         }
 
         &:nth-child(4)::before {
-            width: 60%;
+            width: 70%;
             animation: skill_4 $time ease;
         }
 
         &:nth-child(5)::before {
-            width: 70%;
+            width: 65%;
             animation: skill_5 $time ease;
         }
 
         &:nth-child(6)::before {
-            width: 70%;
+            width: 60%;
             animation: skill_6 $time ease;
         }
 
