@@ -91,7 +91,7 @@ a {
 
 .profile {
     background: $profileBg;
-    width: 40%;
+    width: 35%;
     float: left;
     color: $profileColor;
 
@@ -101,7 +101,7 @@ a {
 
     .name-wrapper {
         float: left;
-        width: 60%;
+        width: 65%;
     }
 
     h1 {
@@ -138,8 +138,8 @@ a {
     }
 
     .picture-resume {
-        width: 220px;
-        height: 220px;
+        width: 240px;
+        height: 240px;
         background-size: cover;
         border-radius: 50%;
         margin-right: 0px;
@@ -157,8 +157,10 @@ a {
         }
 
         img {
-            border-radius: 50%;
-            width: 130px;
+            // border-radius: 50%;
+            // width: 130px;
+            border-radius: 40%;
+            width: 115px;
 
             @include breakpoint(papa-bear) {
                 width: 80px;
