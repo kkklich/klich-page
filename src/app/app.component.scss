@@ -89,6 +89,8 @@ a {
     min-height: 600px;
 }
 
+.top-container {}
+
 .profile {
     background: $profileBg;
     width: 35%;
@@ -111,20 +113,17 @@ a {
         color: $boldColor;
         text-transform: uppercase;
         line-height: 1em;
-        padding-top: 40px;
+        margin: 24px;
 
-        @include breakpoint(mama-bear) {
-            padding-top: 20px;
-        }
+        @include breakpoint(mama-bear) {}
 
         @include breakpoint(baby-bear) {
             font-size: 1.8em;
-            padding-top: 20px;
         }
     }
 
     li {
-        margin-bottom: 10px;
+        margin-bottom: 7.5px;
     }
 
     .picture-resume-wrapper {
@@ -138,8 +137,8 @@ a {
     }
 
     .picture-resume {
-        width: 240px;
-        height: 240px;
+        width: 220px;
+        height: 220px;
         background-size: cover;
         border-radius: 50%;
         margin-right: 0px;
@@ -157,10 +156,9 @@ a {
         }
 
         img {
-            // border-radius: 50%;
-            // width: 130px;
-            border-radius: 40%;
-            width: 115px;
+            border-radius: 68%;
+            width: 155px;
+            height: 155px;
 
             @include breakpoint(papa-bear) {
                 width: 80px;
@@ -189,15 +187,14 @@ a {
     }
 
     .contact-info {
-        margin-top: 100px;
         font-weight: 300;
 
         @include breakpoint(mama-bear) {
-            margin-top: 70px;
+            margin-top: 10px;
         }
 
         @include breakpoint(baby-bear) {
-            margin-top: 50px;
+            margin-top: 10px;
         }
     }
 
@@ -205,7 +202,6 @@ a {
         float: left;
         text-align: left;
         font-weight: 600;
-        width: 40%;
         color: $boldColor;
     }
 
@@ -219,8 +215,12 @@ a {
     .contact-presentation {
         text-align: left;
         font-weight: 300;
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-left: 24px;
+        margin-right: 0;
+
+        p {
+            margin: 10px 0;
+        }
 
         @include breakpoint(mama-bear) {
             margin-top: 70px;
@@ -239,7 +239,6 @@ a {
         position: absolute;
         top: 0;
         left: 0;
-        //display:none;
     }
 
     .st0,
@@ -290,7 +289,11 @@ a {
         float: left;
         text-align: left;
         padding-right: 5%;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
+
+        .list-content {
+            padding-left: 16px;
+        }
 
         @include breakpoint(baby-bear) {
             width: 100%;
@@ -306,7 +309,7 @@ a {
 }
 
 .section-padding {
-    padding: 60px 60px 40px 40px;
+    padding: 40px;
 
     @include breakpoint(brother-bear) {
         padding: 80px 15% 40px 10%;
@@ -390,12 +393,12 @@ a {
         }
 
         &:nth-child(6)::before {
-            width: 60%;
+            width: 65%;
             animation: skill_6 $time ease;
         }
 
         &:nth-child(7)::before {
-            width: 70%;
+            width: 65%;
             animation: skill_6 $time ease;
         }
     }
