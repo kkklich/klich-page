@@ -203,6 +203,13 @@ a {
         text-align: left;
         font-weight: 600;
         color: $boldColor;
+
+        img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
     }
 
     .list-content {
@@ -262,7 +269,7 @@ a {
         width: 100%;
     }
 
-    h3.experience-title {
+    h3.title {
         color: $linkColor;
         text-align: left;
         text-transform: uppercase;
@@ -301,10 +308,17 @@ a {
         }
     }
 
-    .experience-title {
+    .title {
+        color: white;
+    }
+
+    .title-margin {
         color: white;
         margin-bottom: 15px;
-        ;
+    }
+
+    .container-box {
+        margin: 8px 0;
     }
 }
 
