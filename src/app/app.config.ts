@@ -4,10 +4,12 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { serverRoutes } from './app.routes.server';
 import { routes } from './app.routes';
 import { provideServerRouting } from '@angular/ssr';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
     providers: [provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideServerRouting(serverRoutes),
-    provideClientHydration(withEventReplay())]
+    provideClientHydration(withEventReplay()),
+    provideHttpClient()]
 };
