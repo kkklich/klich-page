@@ -9,8 +9,7 @@ import { DataPoint } from '../models/aggregated_data.model';
     providedIn: 'root'
 })
 export class ApiService {
-    // private apiUrl = 'https://it-jobs-u7kb.onrender.com/api/stats';
-    private apiUrl = 'http://127.0.0.1:5000/api/stats';
+    private apiUrl = 'https://it-jobs-u7kb.onrender.com/api/stats';
 
     constructor(private http: HttpClient) { }
 
