@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DataPoint } from '../models/aggregated_data.model';
 
-
-
 @Injectable({
     providedIn: 'root'
 })

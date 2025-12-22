@@ -29,8 +29,10 @@
             gap: 20px;
         }
 
+        /* Taller charts on small screens */
         @media (max-width: 768px) {
-            height: 450px;
+            height: 650px; // was 450px
+            grid-auto-rows: auto;
         }
     }
 
@@ -50,11 +52,20 @@
 
         &.main-chart {
             grid-column: span 1;
+
+            /* Give main chart more height on mobile */
+            @media (max-width: 768px) {
+                min-height: 470px;
+            }
         }
 
         &.side-chart {
             @media (max-width: 1024px) {
                 grid-column: span 1;
+            }
+
+            @media (max-width: 768px) {
+                min-height: 220px;
             }
         }
 
