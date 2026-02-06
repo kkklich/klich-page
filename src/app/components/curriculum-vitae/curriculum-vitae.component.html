@@ -1,165 +1,864 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<div class="resume-wrapper">
-    <section class="profile section-padding">
-        <div class="container">
-            <div class="picture-resume-wrapper">
-                <div class="picture-resume">
-                    <span><img src="../assets/images/profile.webp" alt="xxxx" /></span>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="name-wrapper">
-                <h1>Krzysztof <br />Klich</h1>
-            </div>
-            <div class="clearfix"></div>
-            <div class="contact-info clearfix">
-                <ul class="list-titles">
-                    <li>Phone</li>
-                    <li>Mail</li>
-                    <li>Web</li>
-                    <li>Home</li>
-                </ul>
-                <ul class="list-content ">
-                    <li><a href="tel:+48784895309">+48 784 895 309</a></li>
-                    <li><a href="mailto:kklich97@gmail.com">{{'kklich97@gmail.com'}}</a></li>
-                    <li><a href="#">krzysztofklich.pl</a></li>
-                    <li><a href="https://www.google.com/maps/place/Kraków,+PL" target="_blank">Kraków, PL</a></li>
-                </ul>
-            </div>
-            <div class="contact-presentation">
-                <p>
-                    <span class="bold">Fullstack Developer</span> with 4 years of hands-on experience in
-                    building and
-                    maintaining scalable web applications.
-                    Skilled in Angular, TypeScript, C#, and PostgreSQL, with a strong focus on writing clean, efficient
-                    code and
-                    collaborating effectively within cross-functional teams.
+<!-- cv.component.html -->
+<div class="cv-page">
 
-                    Outside of work, I enjoy swimming, bike riding, and following the stock market.
-                </p>
+    <!-- Floating particles background -->
+    <div class="particles">
+        <span class="particle" *ngFor="let p of particles" [ngStyle]="{
+      width: p.size + 'px',
+      height: p.size + 'px',
+      'background-color': p.color,
+      left: p.left + '%',
+      top: p.top + '%',
+      'animation-duration': p.duration + 's',
+      'animation-delay': p.delay + 's'
+    }"></span>
+    </div>
+
+
+    <!-- Navigation dots -->
+    <nav class="nav-dots">
+        <a *ngFor="let section of sections" [href]="'#' + section" class="nav-dot-link" [attr.aria-label]="section">
+            <span class="nav-dot-label">{{ section }}</span>
+            <span class="nav-dot"></span>
+        </a>
+    </nav>
+
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section id="hero" class="hero-section">
+        <div class="hero-blob hero-blob--green"></div>
+        <div class="hero-blob hero-blob--blue"></div>
+
+        <div class="hero-content">
+            <!-- Avatar -->
+            <div class="avatar-wrapper animate-scale-in">
+                <div class="avatar-ring">
+                    <div class="avatar-inner">
+                        <span class="avatar-initials">KK</span>
+                    </div>
+                </div>
+                <div class="avatar-status">
+                    <span class="avatar-status-dot"></span>
+                </div>
             </div>
-            <div class="contact-social clearfix">
-                <ul class="list-titles">
-                    <li><a target="_blank" href="https://www.facebook.com/krzysztof.klich.39/">
-                            <img src="../../../assets/logos/facebook.png" alt="facebook">
-                            Facebook.com/krzysztof.klich.39</a></li>
-                    <li><a target="_blank" href="https://www.linkedin.com/in/krzysztof-klich-794028189/">
-                            <img src="../../../assets/logos/linkedin.png" alt="Linkedin">
-                            Linkedin.com/in/krzysztof-klich-794028189</a>
-                    </li>
-                    <li><a target="_blank" href="https://github.com/kkklich/">
-                            <img src="../../../assets/logos/github.svg" alt="GitHub">
-                            Github.com/kkklich</a> </li>
-                </ul>
+
+            <!-- Name -->
+            <h1 class="hero-name animate-fade-in-up delay-200">
+                <span class="hero-name__first">Krzysztof </span>
+                <span class="hero-name__last">Klich</span>
+            </h1>
+
+            <!-- Title badge -->
+            <div class="animate-fade-in-up delay-300">
+                <div class="hero-badge">
+                    <svg class="hero-badge__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    <span>Fullstack Developer &nbsp;·&nbsp; Angular &nbsp;·&nbsp; .NET</span>
+                </div>
+            </div>
+
+            <!-- Location -->
+            <p class="hero-location animate-fade-in-up delay-400">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+                Kraków, Poland
+            </p>
+
+            <!-- CTA buttons -->
+            <div class="hero-cta animate-fade-in-up delay-500">
+                <a href="mailto:kklich97@gmail.com" class="btn btn--primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    Get In Touch
+                </a>
+            </div>
+
+            <!-- Social row -->
+            <div class="hero-socials animate-fade-in-up delay-600">
+                <a href="https://www.linkedin.com/in/krzysztof-klich-794028189/" target="_blank" rel="noreferrer"
+                    class="social-icon" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect width="4" height="12" x="2" y="9" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="https://github.com/kkklich/" target="_blank" rel="noreferrer" class="social-icon"
+                    aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
-    <section class="experience section-padding">
-        <div class="container">
-            <h3 class="title title-margin">Experience</h3>
+    <!-- ═══════════════════════════ ABOUT ═══════════════════════════ -->
+    <section id="about" class="section" appAnimateOnScroll>
+        <div class="section__container">
 
-            <div class="experience-wrapper">
-                <div class="company-wrapper clearfix">
-                    <div class="title title-margin">Idealogic sp. z o. o.</div>
-                    <div class="time">Sep 2021 - Present</div>
+            <div class="section-heading">
+                <div class="section-heading__badge">
+                    <svg class="section-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    <span>About Me</span>
                 </div>
-
-                <div class="job-wrapper clearfix">
-                    <div class="title title-margin">Fullstack Developer </div>
-                    <div class="description">
-                        <p>Developed full-stack web applications from scratch using Angular and backend technologies.
-                            Responsible
-                            for building scalable, responsive features, integrating APIs, and delivering high-quality
-                            code in agile
-                            teams.</p>
-                        <ul class="list-titles list-content">
-                            <li>
-                                <a target="_blank"
-                                    href="https://snelbouwloods.dev.nestoya.tech">snelbouwloods.dev.nestoya.tech</a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="https://inkutlab.nestoya.tech">inkutlab.nestoya.tech</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="company-wrapper clearfix">
-                    <div class="title title-margin">NZS</div>
-                    <div class="time">Oct 2019 - Sep 2021</div>
-                </div>
-
-                <div class="job-wrapper clearfix">
-                    <div class="title title-margin">Web Designer</div>
-                    <div class="description">
-                        <p>At NZS, a student organization, I created and maintained a WordPress website, managed emails,
-                            and helped
-                            coordinate projects. This role improved my skills in web development, IT support, and
-                            project management.
-                        </p>
-                    </div>
-                </div>
+                <h2 class="section-heading__title">About Me</h2>
+                <div class="section-heading__line"></div>
             </div>
 
-            <div class="section-wrapper clearfix">
-                <h3 class="section-title">Skills</h3>
-
-                <div class="wrapper">
-                    <div class="container-box">
-                        <div class="title">Programming Languages</div>
-                        <div class="">C#, TypeScript, SQL, HTML, CSS</div>
-                    </div>
-                    <div class="container-box">
-                        <div class="title">Frameworks</div>
-                        <div class="">Angular, .NET, Node.js, Devexpress</div>
-                    </div>
-                    <div class="container-box">
-                        <div class="title">Tools</div>
-                        <div class="">Git, Gitlab, Copilot, Rest API, PostgreSQL, Dbeaver, MySQL, Postman, SonarQube,
-                            REST API
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="section-wrapper clearfix">
-
-                <div>
-                    <h3 class="section-title">Education</h3>
-                    <div class="education-wrapper">
-                        <div class="container-box">
-                            <div class="title">Bachelor’s degree in IT & Econometrics</div>
-                            <div class="description">University of Economics in Katowice</div>
-                            <div class="description">Oct 2016 - Jun 2020</div>
-                        </div>
-
-                        <div class="container-box">
-                            <div class="title">Master’s degree in Information Technology</div>
-                            <div class="description">University of Economics in Katowice</div>
-                            <div class="description">Oct 2020 - Jun 2022</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hobbies-wrapper">
-                    <h3 class="section-title">Courses & Certifications</h3>
-                    <div class="title">Angular Master Course
-                    </div>
-                    <div class="description">Tomasz Borowski Angular in Space</div>
-                </div>
-                <div class="hobbies-wrapper">
-                    <h3 class="section-title">Hobbies</h3>
-                    <p>In my free time, I enjoy swimming, cycling, and going on mountain trips. I'm also passionate
-                        about follow the stock market. These activities help me stay active, focused, and
-                        continuously curious.
+            <div class="about-grid">
+                <!-- Bio -->
+                <div class="card card--hover">
+                    <p class="about-text">
+                        I'm Krzysztof, a <span class="text-primary fw-600">Fullstack Web Developer</span>
+                        with over 4 years of professional experience building modern web applications using
+                        Angular and .NET technologies. I work comfortably across the full stack, from crafting
+                        responsive, user-friendly front ends to designing scalable and secure back-end architectures.
+                    </p>
+                    <p class="about-text">
+                        I care about writing clean, maintainable code and delivering solutions that are both
+                        efficient and easy to use. I enjoy problem-solving, learning new technologies, and
+                        continuously improving my technical and architectural skills. Whether it's a greenfield
+                        project or a long-term system, I focus on creating reliable software that brings real
+                        business value.
                     </p>
                 </div>
-            </div>
 
+                <!-- Contact card -->
+                <div class="card card--hover">
+                    <h3 class="card__title">
+                        <span class="dot dot--primary"></span>
+                        Contact Information
+                    </h3>
+
+                    <div class="contact-list">
+                        <a href="tel:+48784895309" class="contact-item">
+                            <span class="contact-item__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </span>
+                            <div>
+                                <span class="contact-item__label">Phone</span>
+                                <p class="contact-item__value">+48 784 895 309</p>
+                            </div>
+                        </a>
+
+                        <a href="mailto:kklich97@gmail.com" class="contact-item">
+                            <span class="contact-item__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </span>
+                            <div>
+                                <span class="contact-item__label">Email</span>
+                                <p class="contact-item__value">kklich97&#64;gmail.com</p>
+                            </div>
+                        </a>
+
+                        <a href="https://krzysztofklich.pl" target="_blank" rel="noreferrer" class="contact-item">
+                            <span class="contact-item__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                    <path d="M2 12h20" />
+                                </svg>
+                            </span>
+                            <div>
+                                <span class="contact-item__label">Website</span>
+                                <p class="contact-item__value">krzysztofklich.pl</p>
+                            </div>
+                        </a>
+
+                        <a href="https://www.google.com/maps/place/Kraków,+PL" target="_blank" rel="noreferrer"
+                            class="contact-item">
+                            <span class="contact-item__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <div>
+                                <span class="contact-item__label">Location</span>
+                                <p class="contact-item__value">Kraków, Poland</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Social links in contact card -->
+                    <div class="contact-socials">
+                        <h4 class="contact-socials__label">Find me online</h4>
+                        <div class="contact-socials__links">
+                            <a href="https://www.linkedin.com/in/krzysztof-klich-794028189/" target="_blank"
+                                rel="noreferrer" class="social-link-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect width="4" height="12" x="2" y="9" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/kkklich/" target="_blank" rel="noreferrer"
+                                class="social-link-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                                GitHub
+                            </a>
+                            <a href="#" class="social-link-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                </svg>
+                                Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="clearfix"></div>
+    <!-- ═══════════════════════════ EXPERIENCE ═══════════════════════════ -->
+    <section id="experience" class="section">
+        <div class="section__container">
+
+            <div class="section-heading">
+                <div class="section-heading__badge">
+                    <svg class="section-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                    <span>Work Experience</span>
+                </div>
+                <h2 class="section-heading__title">Work Experience</h2>
+                <div class="section-heading__line"></div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline__line"></div>
+
+                <!-- Job 1: Idealogic -->
+                <div class="timeline-item">
+                    <div class="timeline-item__grid">
+                        <!-- Left meta -->
+                        <div class="timeline-meta">
+                            <div class="timeline-meta__company">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-primary">
+                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                                    <path d="M10 6h4" />
+                                    <path d="M10 10h4" />
+                                    <path d="M10 14h4" />
+                                    <path d="M10 18h4" />
+                                </svg>
+                                <h3>Idealogic sp. z o.o.</h3>
+                            </div>
+                            <div class="timeline-meta__date">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                    <line x1="16" x2="16" y1="2" y2="6" />
+                                    <line x1="8" x2="8" y1="2" y2="6" />
+                                    <line x1="3" x2="21" y1="10" y2="10" />
+                                </svg>
+                                Sep 2021 — Present
+                            </div>
+                            <span class="badge badge--current">Current Position</span>
+                        </div>
+
+                        <!-- Right detail -->
+                        <div class="timeline-detail">
+                            <div class="timeline-dot timeline-dot--primary"></div>
+
+                            <div class="card card--hover">
+                                <h4 class="timeline-role text-primary">Fullstack Developer (Angular / .NET)</h4>
+
+                                <p class="timeline-desc">
+                                    Worked as a Full-Stack Developer in a software house, contributing to multiple
+                                    commercial projects, including both greenfield development and long-term maintained
+                                    systems. Took ownership of features across the full development lifecycle,
+                                    participated
+                                    in architectural and technical decisions, selected libraries and tools, and
+                                    collaborated
+                                    directly with clients.
+                                </p>
+
+                                <h5 class="timeline-subtitle">Key Responsibilities</h5>
+                                <ul class="timeline-list">
+                                    <li>
+                                        <span class="timeline-list__dot"></span>
+                                        Designed and implemented secure REST APIs with JWT-based authentication
+                                    </li>
+                                    <li>
+                                        <span class="timeline-list__dot"></span>
+                                        Integrated Stripe payments, handling full transaction and payment flows
+                                    </li>
+                                    <li>
+                                        <span class="timeline-list__dot"></span>
+                                        Built analytics dashboards, reports, and statistics for business insights
+                                    </li>
+                                    <li>
+                                        <span class="timeline-list__dot"></span>
+                                        Designed scalable backend solutions using .NET 8, C#, Entity Framework, and
+                                        PostgreSQL
+                                    </li>
+                                    <li>
+                                        <span class="timeline-list__dot"></span>
+                                        Implemented email services and system-wide notification mechanisms
+                                    </li>
+                                    <li>
+                                        <span class="timeline-list__dot"></span>
+                                        Developed front-end applications using Angular 20, TypeScript, NgRx, and RxJS
+                                    </li>
+                                </ul>
+
+                                <h5 class="timeline-subtitle">Tech Stack</h5>
+                                <div class="tag-list">
+                                    <span class="tag">Angular</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">NgRx</span>
+                                    <span class="tag">RxJS</span>
+                                    <span class="tag">.NET 8</span>
+                                    <span class="tag">C#</span>
+                                    <span class="tag">Entity Framework</span>
+                                    <span class="tag">PostgreSQL</span>
+                                    <span class="tag">REST API</span>
+                                    <span class="tag">SCSS</span>
+                                    <span class="tag">Bootstrap</span>
+                                </div>
+
+                                <h5 class="timeline-subtitle">Selected Projects</h5>
+                                <div class="project-links">
+                                    <a href="https://snelbouwloods.dev.nestoya.tech" target="_blank" rel="noreferrer"
+                                        class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                            <polyline points="15 3 21 3 21 9" />
+                                            <line x1="10" x2="21" y1="14" y2="3" />
+                                        </svg>
+                                        snelbouwloods.dev.nestoya.tech
+                                    </a>
+                                    <a href="https://inkutlab.nestoya.tech" target="_blank" rel="noreferrer"
+                                        class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                            <polyline points="15 3 21 3 21 9" />
+                                            <line x1="10" x2="21" y1="14" y2="3" />
+                                        </svg>
+                                        inkutlab.nestoya.tech
+                                    </a>
+                                    <a href="https://afmultiselector.dev.nestoya.tech" target="_blank" rel="noreferrer"
+                                        class="project-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                            <polyline points="15 3 21 3 21 9" />
+                                            <line x1="10" x2="21" y1="14" y2="3" />
+                                        </svg>
+                                        afmultiselector.dev.nestoya.tech
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2: NZS -->
+                <div class="timeline-item">
+                    <div class="timeline-item__grid">
+                        <div class="timeline-meta">
+                            <div class="timeline-meta__company">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="text-accent-blue">
+                                    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                                    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                                    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                                    <path d="M10 6h4" />
+                                    <path d="M10 10h4" />
+                                    <path d="M10 14h4" />
+                                    <path d="M10 18h4" />
+                                </svg>
+                                <h3>NZS</h3>
+                            </div>
+                            <div class="timeline-meta__date">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                    <line x1="16" x2="16" y1="2" y2="6" />
+                                    <line x1="8" x2="8" y1="2" y2="6" />
+                                    <line x1="3" x2="21" y1="10" y2="10" />
+                                </svg>
+                                Oct 2019 — Sep 2021
+                            </div>
+                        </div>
+
+                        <div class="timeline-detail">
+                            <div class="timeline-dot timeline-dot--blue"></div>
+
+                            <div class="card card--hover-blue">
+                                <h4 class="timeline-role text-accent-blue">Web Designer</h4>
+                                <p class="timeline-desc">
+                                    At NZS, a student organization, I created and maintained a WordPress website,
+                                    managed emails, and helped coordinate projects. This role improved my skills
+                                    in web development, IT support, and project management.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════ SKILLS ═══════════════════════════ -->
+    <section id="skills" class="section">
+        <div class="section__container">
+
+            <div class="section-heading">
+                <div class="section-heading__badge">
+                    <svg class="section-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                    </svg>
+                    <span>Skills &amp; Technologies</span>
+                </div>
+                <h2 class="section-heading__title">Skills & Technologies</h2>
+                <div class="section-heading__line"></div>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-card skill-card--primary">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon skill-card__icon--primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </span>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">C#</span>
+                            <span class="skill-bar__pct">90%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">TypeScript</span>
+                            <span class="skill-bar__pct">88%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">SQL</span>
+                            <span class="skill-bar__pct">82%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">HTML / CSS / SCSS</span>
+                            <span class="skill-bar__pct">85%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="skill-card skill-card--blue">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon skill-card__icon--blue">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </span>
+                        <h3>Frameworks & Libraries</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">Angular</span>
+                            <span class="skill-bar__pct">92%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">.NET / ASP.NET</span>
+                            <span class="skill-bar__pct">88%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">Entity Framework</span>
+                            <span class="skill-bar__pct">85%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">NgRx / RxJS</span>
+                            <span class="skill-bar__pct">80%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="skill-card skill-card--purple">
+                    <div class="skill-card__header">
+                        <span class="skill-card__icon skill-card__icon--purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </span>
+                        <h3>Tools & Databases</h3>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">Git / GitLab</span>
+                            <span class="skill-bar__pct">88%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">PostgreSQL / MySQL</span>
+                            <span class="skill-bar__pct">85%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">Postman / DBeaver</span>
+                            <span class="skill-bar__pct">80%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-bar__header">
+                            <span class="skill-bar__name">SonarQube / Copilot</span>
+                            <span class="skill-bar__pct">75%</span>
+                        </div>
+                        <div class="skill-bar__track">
+                            <div class="skill-bar__fill" style="--target-width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Technologies tag cloud -->
+            <div class="card tech-cloud">
+                <h3 class="card__title">
+                    <span class="dot dot--primary"></span>
+                    All Technologies
+                </h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">SCSS</span>
+                    <span class="tech-tag">Angular</span>
+                    <span class="tech-tag">.NET 8</span>
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Entity Framework</span>
+                    <span class="tech-tag">LINQ</span>
+                    <span class="tech-tag">NgRx</span>
+                    <span class="tech-tag">RxJS</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">JWT</span>
+                    <span class="tech-tag">Stripe</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">DevExpress</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">GitLab</span>
+                    <span class="tech-tag">GitHub</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">DBeaver</span>
+                    <span class="tech-tag">Postman</span>
+                    <span class="tech-tag">SonarQube</span>
+                    <span class="tech-tag">Copilot</span>
+                    <span class="tech-tag">WordPress</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════ EDUCATION ═══════════════════════════ -->
+    <section id="education" class="section">
+        <div class="section__container">
+
+            <div class="section-heading">
+                <div class="section-heading__badge">
+                    <svg class="section-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 10 3 12 0v-5" />
+                    </svg>
+                    <span>Education &amp; Certifications</span>
+                </div>
+                <h2 class="section-heading__title">Education & Certifications</h2>
+                <div class="section-heading__line"></div>
+            </div>
+
+            <div class="education-grid">
+                <!-- Education cards -->
+                <div class="education-col">
+                    <div class="card card--hover education-card">
+                        <div class="education-card__header">
+                            <span class="education-card__icon education-card__icon--primary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 10 3 12 0v-5" />
+                                </svg>
+                            </span>
+                            <h4>Master's degree in Information Technology</h4>
+                        </div>
+                        <p class="education-card__school">University of Economics in Katowice</p>
+                        <div class="education-card__date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <line x1="16" x2="16" y1="2" y2="6" />
+                                <line x1="8" x2="8" y1="2" y2="6" />
+                                <line x1="3" x2="21" y1="10" y2="10" />
+                            </svg>
+                            Oct 2020 — Jun 2022
+                        </div>
+                    </div>
+
+                    <div class="card card--hover-blue education-card">
+                        <div class="education-card__header">
+                            <span class="education-card__icon education-card__icon--blue">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 10 3 12 0v-5" />
+                                </svg>
+                            </span>
+                            <h4>Bachelor's degree in IT & Econometrics</h4>
+                        </div>
+                        <p class="education-card__school">University of Economics in Katowice</p>
+                        <div class="education-card__date">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                                <line x1="16" x2="16" y1="2" y2="6" />
+                                <line x1="8" x2="8" y1="2" y2="6" />
+                                <line x1="3" x2="21" y1="10" y2="10" />
+                            </svg>
+                            Oct 2016 — Jun 2020
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification -->
+                <div class="card card--hover-purple certification-card">
+                    <div class="certification-card__header">
+                        <span class="certification-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="8" r="6" />
+                                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                            </svg>
+                        </span>
+                        <h3>Courses & Certifications</h3>
+                    </div>
+                    <div class="certification-item">
+                        <h4>Angular Master Course</h4>
+                        <p>Tomasz Borowski — Angular in Space</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════ HOBBIES ═══════════════════════════ -->
+    <section id="hobbies" class="section">
+        <div class="section__container">
+
+            <div class="section-heading">
+                <div class="section-heading__badge">
+                    <svg class="section-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                    </svg>
+                    <span>Hobbies &amp; Interests</span>
+                </div>
+                <h2 class="section-heading__title">Hobbies & Interests</h2>
+                <div class="section-heading__line"></div>
+            </div>
+
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <span class="hobby-card__emoji">🏊</span>
+                    <span class="hobby-card__label">Swimming</span>
+                </div>
+                <div class="hobby-card">
+                    <span class="hobby-card__emoji">🚴</span>
+                    <span class="hobby-card__label">Cycling</span>
+                </div>
+                <div class="hobby-card">
+                    <span class="hobby-card__emoji">⛰️</span>
+                    <span class="hobby-card__label">Mountain Trips</span>
+                </div>
+                <div class="hobby-card">
+                    <span class="hobby-card__emoji">📈</span>
+                    <span class="hobby-card__label">Stock Market</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__brand">
+                <div class="footer__logo">
+                    <span>KK</span>
+                </div>
+                <div>
+                    <p class="footer__name">Krzysztof Klich</p>
+                    <p class="footer__role">Fullstack Developer · Kraków, PL</p>
+                </div>
+            </div>
+
+            <div class="footer__socials">
+                <a href="https://www.linkedin.com/in/krzysztof-klich-794028189/" target="_blank" rel="noreferrer"
+                    class="footer__social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect width="4" height="12" x="2" y="9" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="https://github.com/kkklich/" target="_blank" rel="noreferrer" class="footer__social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                </a>
+                <a href="mailto:kklich97@gmail.com" class="footer__social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                </a>
+            </div>
+
+            <p class="footer__copyright">© 2025 Krzysztof Klich. All rights reserved.</p>
+        </div>
+    </footer>
+
 </div>
